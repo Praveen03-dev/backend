@@ -4,18 +4,14 @@ import reportRoutes from './routes/report.routes.js';
 
 const app = express();
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL || 'https://frontend-gjji.onrender.com/',
-  'http://localhost:3000', // keep dev
-];
+app.use(
+  cors({
+    origin: "https://frontend-gjji.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-app.use(cors({
-  origin(origin, cb) {
-    if (!origin || allowedOrigins.includes(origin)) return cb(null, true);
-    return cb(new Error('Not allowed by CORS: ' + origin));
-  },
-  credentials: false
-}));
 
 app.use(express.json());
 

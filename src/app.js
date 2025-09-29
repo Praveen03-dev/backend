@@ -5,7 +5,7 @@ import reportRoutes from './routes/report.routes.js';
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:3000',
+  process.env.FRONTEND_URL || 'https://frontend-gjji.onrender.com/',
   'http://localhost:3000', // keep dev
 ];
 
